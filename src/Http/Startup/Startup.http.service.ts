@@ -8,7 +8,7 @@ export class StartupHttpService {
     return StartupMapper.map(response.data);
   }
   public static async getStartups(): Promise<Startup[]> {
-    const response = await axios.get<StartupDTO[]>(`/api/startups`);
+    const response = await axios.get<StartupDTO[]>(`/api/startups?all=true`);
     return response.data.map((startup) => StartupMapper.map(startup));
   }
 }
